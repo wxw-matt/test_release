@@ -1,0 +1,17 @@
+name: Build and Release Manually
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set version
+        run: |
+          echo "VERSION=$(cat .version)" >> $GITHUB_ENV
+      - name: Show version
+        run: |
+          echo "${{ env.GITHUB_REF_NAME }}"
