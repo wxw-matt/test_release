@@ -15,7 +15,7 @@ jobs:
           echo "${{ github.ref_name }}"
       - name: Print vars
         run: |
-          echo "ci : ${{ ci }}"
+          echo "github.ci : ${{ github.ci }}"
           echo "github.action : ${{ github.action }}"
           echo "github.action_path : ${{ github.action_path }}"
           echo "github.action_repository : ${{ github.action_repository }}"
