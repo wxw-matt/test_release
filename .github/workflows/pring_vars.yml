@@ -10,7 +10,10 @@ jobs:
     steps:
       - name: Show version
         run: |
-          echo "${{ env.GITHUB_REF_NAME }}"
+          echo "${{ GITHUB_REF_NAME }}"
+          echo "${{ vars.GITHUB_REF_NAME }}"
+          echo "${{ github.ref }}"
+          echo "${{ github.ref_name }}"
       - name: Print vars
         run: |
           echo "CI : ${{ env.CI }}"
