@@ -1,0 +1,20 @@
+name: Test if
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - 'main'
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set version
+        if: ${{ startsWith(github.ref, 'refs/tags/') || github.ref_name == 'main' }}
+        run: |
+          echo "v123"
